@@ -1,0 +1,24 @@
+/*
+ * style.css — ByToken + Sittax Landing Page
+ * ─────────────────────────────────────────
+ * Este arquivo é destinado a overrides e customizações
+ * externas. Os estilos principais estão embutidos no
+ * index.html (dentro da tag <style>).
+ *
+ * Use este arquivo para ajustes rápidos sem precisar
+ * editar o HTML diretamente.
+ */
+
+/* Exemplo de override: alterar a cor primária */
+/*
+:root {
+  --orange: #e05a20;
+}
+*/
+
+/* Exemplo: ajustar fonte do body */
+/*
+body {
+  font-family: 'Inter', sans-serif;
+}
+*/

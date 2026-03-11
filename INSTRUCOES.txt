@@ -1,0 +1,86 @@
+========================================================
+  BYTOKEN + SITTAX — Landing Page
+  Instruções de Deploy no GitHub Pages
+========================================================
+
+ESTRUTURA DO PROJETO
+--------------------
+  index.html       → Página principal (HTML estático, tudo incluso)
+  style.css        → Estilos globais externos (opcional / override)
+  main.jsx         → Ponto de entrada React (caso queira migrar p/ Vite)
+  package.json     → Dependências e scripts do projeto
+  vite.config.js   → Configuração do Vite (build + GitHub Pages)
+  INSTRUCOES.txt   → Este arquivo
+
+
+OPÇÃO 1 — DEPLOY SIMPLES (GitHub Pages com HTML estático)
+----------------------------------------------------------
+Esta é a opção mais rápida. O arquivo index.html já é
+auto-contido (estilos e scripts embutidos).
+
+Passos:
+  1. Crie um repositório no GitHub (ex: bytoken-sittax-lp)
+  2. Faça o commit e push de todos os arquivos:
+
+       git init
+       git add .
+       git commit -m "chore: initial commit landing page"
+       git remote add origin https://github.com/SEU_USUARIO/bytoken-sittax-lp.git
+       git push -u origin main
+
+  3. No repositório, acesse:
+       Settings → Pages → Source → "Deploy from a branch"
+       Branch: main / (root)
+
+  4. Aguarde ~1 min. A URL será:
+       https://SEU_USUARIO.github.io/bytoken-sittax-lp/
+
+
+OPÇÃO 2 — DEPLOY COM VITE + REACT (GitHub Pages via Actions)
+-------------------------------------------------------------
+Use esta opção se quiser transformar o projeto em React.
+
+Pré-requisitos:
+  - Node.js 18+ instalado
+
+Passos:
+  1. Instale as dependências:
+       npm install
+
+  2. Rode em modo desenvolvimento:
+       npm run dev
+       → Abre em http://localhost:5173
+
+  3. Gere o build de produção:
+       npm run build
+       → Gera a pasta /dist
+
+  4. Faça o deploy no GitHub Pages:
+       npm run deploy
+       → Publica a pasta /dist na branch gh-pages
+
+  5. No repositório GitHub:
+       Settings → Pages → Source → "Deploy from a branch"
+       Branch: gh-pages / (root)
+
+  Obs: o script "deploy" usa o pacote gh-pages.
+       Na primeira vez, pode ser necessário autenticar o Git.
+
+
+DOMÍNIO PERSONALIZADO (opcional)
+---------------------------------
+  1. Crie um arquivo chamado CNAME na raiz do projeto com
+     o seu domínio, ex:
+       lp.bytoken.com.br
+
+  2. Configure o DNS do seu domínio com um registro CNAME
+     apontando para:
+       SEU_USUARIO.github.io
+
+
+DÚVIDAS?
+---------
+  Documentação oficial do GitHub Pages:
+  https://docs.github.com/pt/pages
+
+========================================================
