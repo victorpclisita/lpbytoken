@@ -78,34 +78,206 @@
   h2{font-size:clamp(1.6rem,2.8vw,2.5rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:1rem;}
   p{color:var(--gray-light);font-size:.97rem;}
 
-  /* TRANSITION */
+  /* ── TRANSITION — redesigned ── */
+  #transicao { padding: 6rem 5vw 5rem; }
+
   .transition-top{display:flex;align-items:center;justify-content:center;gap:1.4rem;margin-bottom:1.5rem;}
   .transition-top img.logo-by{height:32px;object-fit:contain;}
   .transition-top .t-arrow{color:var(--gray);font-size:1.4rem;line-height:1;}
   .transition-top img.logo-si{height:26px;object-fit:contain;}
 
-  .transition-block{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:1100px;margin:0 auto;}
-  .transition-text h2{color:var(--white);margin-bottom:1rem;}
-  .transition-text p{line-height:1.8;margin-bottom:1rem;font-size:.97rem;}
+  /* Main 2-col grid */
+  .transition-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .transition-text h2 {
+    font-size: clamp(1.9rem, 3.2vw, 2.9rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -.03em;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+  .transition-text p {
+    line-height: 1.85;
+    font-size: .97rem;
+    color: var(--gray-light);
+    max-width: 480px;
+  }
 
-  /* Bullets panel */
-  .bullets-panel{background:var(--dark2);border:1px solid var(--border);border-radius:14px;padding:2.2rem 2rem;display:flex;flex-direction:column;transition:border-color .3s,box-shadow .3s;}
-  .bullets-panel:hover{border-color:rgba(242,107,55,.4);box-shadow:0 0 24px rgba(242,107,55,.08);}
-  .bullets-title{font-size:.88rem;font-weight:600;color:var(--gray-light);margin-bottom:1.4rem;}
-  .bullet-list{display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;}
-  .bullet-item{display:flex;align-items:center;gap:.75rem;font-size:.97rem;font-weight:600;color:var(--white);}
-  .bullet-dot{width:8px;height:8px;border-radius:50%;background:var(--bytoken-green);flex-shrink:0;box-shadow:0 0 7px rgba(75,200,101,.45);}
+  /* Bullets panel — pill-style stacked items */
+  .bullets-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .bullets-title {
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .bullet-list { display: flex; flex-direction: column; gap: .7rem; }
+  .bullet-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--white);
+    transition: border-color .25s, background .25s, transform .2s;
+    cursor: default;
+  }
+  .bullet-item:hover {
+    border-color: rgba(75,200,101,.35);
+    background: rgba(75,200,101,.04);
+    transform: translateX(4px);
+  }
+  .bullet-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--bytoken-green);
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(75,200,101,.6);
+  }
 
-  /* Caption — bigger, more prominent */
-  .ceo-quote{position:relative;max-width:820px;margin:3rem auto 0;padding:2.8rem 3rem 2.8rem 3.5rem;background:linear-gradient(135deg,rgba(242,107,55,.07) 0%,rgba(242,107,55,.03) 100%);border-left:3px solid var(--orange);border-radius:0 14px 14px 0;overflow:hidden;}
-  .ceo-quote::before{content:'\201C';position:absolute;top:-.25rem;left:1.2rem;font-size:9rem;line-height:1;color:var(--orange);opacity:.18;font-family:Georgia,serif;pointer-events:none;user-select:none;}
-  .ceo-quote blockquote{position:relative;z-index:1;margin:0;padding:0;}
-  .ceo-quote blockquote p{font-size:1.15rem;line-height:1.75;color:var(--white);font-style:italic;font-weight:400;margin:0 0 1.5rem;}
-  .ceo-quote figcaption{display:flex;align-items:center;gap:.75rem;}
-  .ceo-quote figcaption .ceo-line{width:28px;height:2px;background:var(--orange);border-radius:2px;flex-shrink:0;}
-  .ceo-quote figcaption .ceo-name{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);}
-  .ceo-quote figcaption .ceo-role{font-size:.82rem;color:rgba(255,255,255,.5);margin-left:.25rem;}
-  @media(max-width:600px){.ceo-quote{padding:2rem 1.5rem 2rem 2rem;}.ceo-quote blockquote p{font-size:1rem;}}
+  /* ── CEO quote — full-width editorial strip ── */
+  .ceo-quote {
+    position: relative;
+    max-width: 1100px;
+    margin: 4.5rem auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--dark2);
+    border: 1px solid var(--border);
+  }
+  .ceo-quote-left {
+    padding: 3.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .ceo-quote-left::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(242,107,55,.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .ceo-bigmark {
+    font-family: Georgia, serif;
+    font-size: 7rem;
+    line-height: .8;
+    color: var(--orange);
+    opacity: .22;
+    margin-bottom: .5rem;
+    user-select: none;
+  }
+  .ceo-quote blockquote {
+    margin: 0; padding: 0;
+    position: relative; z-index: 1;
+  }
+  .ceo-quote blockquote p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--white);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .ceo-quote figcaption {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .ceo-line { width: 28px; height: 2px; background: var(--orange); border-radius: 2px; flex-shrink: 0; }
+  .ceo-name { font-size: .82rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--orange); }
+  .ceo-role { font-size: .82rem; color: rgba(255,255,255,.45); }
+
+  /* Right panel — accent visual */
+  .ceo-quote-right {
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(145deg, rgba(242,107,55,.08) 0%, rgba(242,107,55,.02) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .ceo-quote-right::before {
+    content: '';
+    position: absolute;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242,107,55,.18) 0%, transparent 70%);
+    top: -80px; right: -80px;
+    pointer-events: none;
+  }
+  .ceo-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+    z-index: 1;
+  }
+  .ceo-pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .ceo-pillar-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(242,107,55,.12);
+    border: 1px solid rgba(242,107,55,.2);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--orange);
+    flex-shrink: 0;
+  }
+  .ceo-pillar-text strong {
+    display: block;
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: .2rem;
+  }
+  .ceo-pillar-text span {
+    font-size: .8rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  @media(max-width:900px){
+    .transition-block { grid-template-columns: 1fr; gap: 3rem; }
+    .ceo-quote { grid-template-columns: 1fr; }
+    .ceo-quote-left { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+  @media(max-width:600px){
+    .ceo-quote-left, .ceo-quote-right { padding: 2rem 1.75rem; }
+    .ceo-quote blockquote p { font-size: 1rem; }
+  }
+  @media(max-width:800px){
+    .transition-block{grid-template-columns:1fr;gap:2rem;}
+    .transition-top{margin-bottom:1.5rem;}
+  }
 
   /* INFO CARDS */
   .info-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;max-width:1100px;margin:2.5rem auto 0;}
@@ -200,10 +372,6 @@
     .stat-item:last-child{border-bottom:none;}
     .stats-card:hover .stat-item{transform:none;}
   }
-  @media(max-width:800px){
-    .transition-block{grid-template-columns:1fr;gap:2rem;}
-    .transition-top{margin-bottom:1.5rem;}
-  }
   @media(max-width:680px){
     .products-grid{grid-template-columns:1fr;}
   }
@@ -297,16 +465,50 @@
       </div>
     </div>
 
-    <!-- Citação CEO Sittax -->
+    <!-- Citação CEO Sittax — editorial 2-col -->
     <figure class="ceo-quote">
-      <blockquote>
-        <p>Essa união é estratégica porque reúne duas coisas que hoje nenhuma empresa pode tratar separadamente: inteligência para decidir e segurança para operar. A ByToken chega para somar exatamente nisso, com mais controle, mais proteção e mais confiança para o mercado brasileiro.</p>
-      </blockquote>
-      <figcaption>
-        <span class="ceo-line"></span>
-        <span class="ceo-name">Alan Arantes</span>
-        <span class="ceo-role">— CEO da Sittax</span>
-      </figcaption>
+      <div class="ceo-quote-left">
+        <div class="ceo-bigmark">"</div>
+        <blockquote>
+          <p>Essa união é estratégica porque reúne duas coisas que hoje nenhuma empresa pode tratar separadamente: inteligência para decidir e segurança para operar. A ByToken chega para somar exatamente nisso, com mais controle, mais proteção e mais confiança para o mercado brasileiro.</p>
+        </blockquote>
+        <figcaption>
+          <span class="ceo-line"></span>
+          <span class="ceo-name">Alan Arantes</span>
+          <span class="ceo-role">— CEO da Sittax</span>
+        </figcaption>
+      </div>
+      <div class="ceo-quote-right">
+        <div class="ceo-pillars">
+          <div class="ceo-pillar">
+            <div class="ceo-pillar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="ceo-pillar-text">
+              <strong>Segurança para operar</strong>
+              <span>Governança de certificados digitais com controle total e rastreabilidade</span>
+            </div>
+          </div>
+          <div class="ceo-pillar">
+            <div class="ceo-pillar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <div class="ceo-pillar-text">
+              <strong>Crescimento estratégico</strong>
+              <span>A estrutura da Sittax impulsionando a ByToken para crescer com mais força, capilaridade e consistência</span>
+            </div>
+          </div>
+          <div class="ceo-pillar">
+            <div class="ceo-pillar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="ceo-pillar-text">
+              <strong>Confiança para o mercado</strong>
+              <span>Mais proteção e conformidade para escritórios e empresas em todo o Brasil</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </figure>
 
     <!-- Info cards: Cobrança + Suporte -->
