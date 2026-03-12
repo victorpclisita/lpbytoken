@@ -97,7 +97,15 @@
   .bullet-dot{width:8px;height:8px;border-radius:50%;background:var(--bytoken-green);flex-shrink:0;box-shadow:0 0 7px rgba(75,200,101,.45);}
 
   /* Caption — bigger, more prominent */
-  .bullets-caption{font-size:1rem;color:var(--white);line-height:1.65;padding-top:1.5rem;border-top:1px solid var(--border);font-style:italic;font-weight:500;opacity:.85;}
+  .ceo-quote{position:relative;max-width:820px;margin:3rem auto 0;padding:2.8rem 3rem 2.8rem 3.5rem;background:linear-gradient(135deg,rgba(242,107,55,.07) 0%,rgba(242,107,55,.03) 100%);border-left:3px solid var(--orange);border-radius:0 14px 14px 0;overflow:hidden;}
+  .ceo-quote::before{content:'\201C';position:absolute;top:-.25rem;left:1.2rem;font-size:9rem;line-height:1;color:var(--orange);opacity:.18;font-family:Georgia,serif;pointer-events:none;user-select:none;}
+  .ceo-quote blockquote{position:relative;z-index:1;margin:0;padding:0;}
+  .ceo-quote blockquote p{font-size:1.15rem;line-height:1.75;color:var(--white);font-style:italic;font-weight:400;margin:0 0 1.5rem;}
+  .ceo-quote figcaption{display:flex;align-items:center;gap:.75rem;}
+  .ceo-quote figcaption .ceo-line{width:28px;height:2px;background:var(--orange);border-radius:2px;flex-shrink:0;}
+  .ceo-quote figcaption .ceo-name{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);}
+  .ceo-quote figcaption .ceo-role{font-size:.82rem;color:rgba(255,255,255,.5);margin-left:.25rem;}
+  @media(max-width:600px){.ceo-quote{padding:2rem 1.5rem 2rem 2rem;}.ceo-quote blockquote p{font-size:1rem;}}
 
   /* INFO CARDS */
   .info-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;max-width:1100px;margin:2.5rem auto 0;}
@@ -219,7 +227,7 @@
     .footer-links{gap:1rem;justify-content:center;}
     .transition-top img.logo-by{height:24px;}
     .transition-top img.logo-si{height:20px;}
-    .bullets-caption{font-size:.9rem;}
+
   }
 </style>
 </head>
@@ -286,9 +294,20 @@
           <div class="bullet-item"><span class="bullet-dot"></span>mais inteligência conectada ao Ecossistema Sittax</div>
           <div class="bullet-item"><span class="bullet-dot"></span>mais capacidade para apoiar operações mais exigentes</div>
         </div>
-        <p class="bullets-caption">Controle sem escala limita. Escala sem controle expõe. A nova fase precisa dos dois.</p>
       </div>
     </div>
+
+    <!-- Citação CEO Sittax -->
+    <figure class="ceo-quote">
+      <blockquote>
+        <p>Essa união é estratégica porque reúne duas coisas que hoje nenhuma empresa pode tratar separadamente: inteligência para decidir e segurança para operar. A ByToken chega para somar exatamente nisso, com mais controle, mais proteção e mais confiança para o mercado brasileiro.</p>
+      </blockquote>
+      <figcaption>
+        <span class="ceo-line"></span>
+        <span class="ceo-name">Alan Arantes</span>
+        <span class="ceo-role">— CEO da Sittax</span>
+      </figcaption>
+    </figure>
 
     <!-- Info cards: Cobrança + Suporte -->
     <h2 style="text-align:center; margin: 3rem 0 1.5rem;">O que muda na prática para você</h2>
